@@ -137,3 +137,43 @@ footer {
   text-decoration: none;
   box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
+/* ------------------------------
+   3カラムレイアウト（PC）＋スマホ対応
+------------------------------ */
+.layout {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.sidebar {
+  flex: 1 1 200px;
+  background: #fff8e1;
+  padding: 10px;
+}
+
+.content {
+  flex: 3 1 600px;
+  padding: 20px;
+}
+
+.contact {
+  flex: 1 1 200px;
+  background: #fff8e1;
+  padding: 10px;
+}
+
+.photos img {
+  width: 100%;
+  max-width: 200px;
+  margin: 5px;
+  border-radius: 8px;
+}
+
+/* ------------------------------
+   スマホ対応（768px以下）
+------------------------------ */
+@media (max-width: 768px) {
+  .layout {
+    flex-direction: column;
+  }
+}
