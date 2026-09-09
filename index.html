@@ -3,283 +3,269 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>リサイクル夢工房 | 不用品回収・買取り・遺品整理のプロ</title>
+  <title>リサイクル夢工房 | 不用品回収・買取・遺品整理【無料見積もり】</title>
   <style>
-    /* 基本スタイル設定 */
     :root {
-      --primary: #1E88E5; /* 信頼感のあるブルー */
-      --secondary: #06C755; /* LINEグリーン */
-      --accent: #FF9800; /* 目立つオレンジ */
-      --bg-light: #F5F7FA;
-      --text-dark: #333333;
+      --primary-color: #0B60B0; /* 誠実な深みのあるブルー */
+      --line-green: #06C755;    /* LINEの基本カラー */
+      --accent-orange: #FF6B00; /* 目立つオレンジ（電話・CTA） */
+      --bg-gray: #F8F9FA;
+      --text-main: #222222;
     }
     body {
-      font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Meiryo", sans-serif;
+      font-family: "Hiragino Kaku Gothic ProN", "Meiryo", sans-serif;
       margin: 0;
       padding: 0;
-      color: var(--text-dark);
+      color: var(--text-main);
       background-color: #fff;
-      line-height: 1.6;
+      line-height: 1.5;
     }
-    
-    /* ヘッダー */
+
+    /* 1. ヘッダー（連絡先を最上部に常時固定） */
     header {
+      background: #fff;
+      padding: 10px 15px;
+      border-bottom: 2px solid var(--primary-color);
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 15px 20px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
       position: sticky;
       top: 0;
-      background: #fff;
       z-index: 100;
     }
-    .logo {
+    .logo-area {
+      font-size: 1.1rem;
+      font-weight: bold;
+      color: var(--primary-color);
+    }
+    .header-contact {
+      text-align: right;
+    }
+    .header-tel {
       font-size: 1.2rem;
       font-weight: bold;
-      color: var(--primary);
-    }
-    .header-btn {
-      background: var(--secondary);
-      color: white;
-      padding: 8px 16px;
-      border-radius: 20px;
+      color: var(--accent-orange);
       text-decoration: none;
-      font-weight: bold;
-      font-size: 0.9rem;
     }
+    .header-sub { font-size: 0.7rem; color: #666; display: block; }
 
-    /* ヒーローセクション（ファーストビュー） */
+    /* 2. ヒーローセクション（一目で要点が伝わる構成） */
     .hero {
-      background: linear-gradient(rgba(30, 136, 229, 0.1), rgba(255, 255, 255, 1)), url('https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=800&q=80') center/cover;
+      background: #E8F1F5;
+      padding: 20px 15px;
       text-align: center;
-      padding: 40px 20px;
     }
-    .hero h1 {
-      font-size: 1.5rem;
-      color: var(--primary);
+    .hero-badge {
+      background: var(--accent-orange);
+      color: #fff;
+      font-size: 0.85rem;
+      font-weight: bold;
+      padding: 4px 12px;
+      border-radius: 20px;
+      display: inline-block;
       margin-bottom: 10px;
     }
-    .hero p {
-      font-size: 0.95rem;
-      margin-bottom: 20px;
+    .hero h1 {
+      font-size: 1.4rem;
+      margin: 0 0 10px 0;
+      color: #111;
+      line-height: 1.3;
     }
-    .badges {
-      display: flex;
-      justify-content: center;
-      gap: 10px;
-      margin-bottom: 20px;
-      flex-wrap: wrap;
-    }
-    .badge {
+    .hero-points {
       background: #fff;
-      border: 1px solid var(--primary);
-      color: var(--primary);
-      padding: 5px 10px;
-      border-radius: 5px;
-      font-size: 0.8rem;
-      font-weight: bold;
+      border: 2px solid var(--primary-color);
+      border-radius: 8px;
+      padding: 12px;
+      margin: 15px 0;
+      text-align: left;
     }
+    .hero-points li {
+      list-style: none;
+      font-weight: bold;
+      font-size: 0.95rem;
+      margin-bottom: 5px;
+      color: var(--primary-color);
+    }
+    .hero-points li::before { content: "✔ "; color: var(--accent-orange); }
 
-    /* 2大コンバージョンボタン */
-    .cta-buttons {
+    /* 3. ワンタップでつながる「超強調メガCTA」 */
+    .cta-box {
       display: flex;
       flex-direction: column;
       gap: 10px;
-      max-width: 400px;
-      margin: 0 auto;
+      margin-top: 15px;
     }
-    .btn-call {
-      background: var(--accent);
-      color: white;
+    .btn-cta {
+      display: flex;
+      align-items: center;
+      justify-content: center;
       padding: 15px;
       border-radius: 8px;
       text-decoration: none;
-      font-size: 1.1rem;
+      color: #fff;
       font-weight: bold;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    }
-    .btn-line {
-      background: var(--secondary);
-      color: white;
-      padding: 15px;
-      border-radius: 8px;
-      text-decoration: none;
       font-size: 1.1rem;
-      font-weight: bold;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 6px rgba(0,0,0,0.15);
     }
+    .btn-tel { background: var(--accent-orange); }
+    .btn-line { background: var(--line-green); }
 
-    /* セクション共通 */
-    .section {
-      padding: 40px 20px;
-    }
+    /* 4. お知らせ・現場ブログセクション（新規追加） */
+    .section { padding: 30px 15px; }
     .section-title {
-      text-align: center;
-      font-size: 1.3rem;
-      color: var(--primary);
-      margin-bottom: 25px;
-      position: relative;
-    }
-    .bg-light {
-      background-color: var(--bg-light);
-    }
-
-    /* 特長カード */
-    .features {
-      display: grid;
-      gap: 15px;
-    }
-    .feature-card {
-      background: white;
-      padding: 20px;
-      border-radius: 8px;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-    }
-    .feature-card h3 {
-      margin-top: 0;
-      color: var(--primary);
-      font-size: 1.1rem;
-    }
-
-    /* サービス・料金 */
-    .services {
-      display: grid;
-      gap: 15px;
-    }
-    .service-card {
-      background: white;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      overflow: hidden;
-    }
-    .service-card img {
-      width: 100%;
-      height: 150px;
-      object-fit: cover;
-    }
-    .service-content {
-      padding: 15px;
-    }
-    .price {
-      color: #E53935;
-      font-weight: bold;
       font-size: 1.2rem;
+      border-left: 5px solid var(--primary-color);
+      padding-left: 10px;
+      margin-bottom: 15px;
+      color: var(--primary-color);
+    }
+    .news-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .news-item {
+      border-bottom: 1px dashed #ccc;
+      padding: 10px 0;
+      display: flex;
+      flex-direction: column;
+    }
+    .news-date { font-size: 0.8rem; color: #777; }
+    .news-tag {
+      display: inline-block;
+      background: #e0e0e0;
+      font-size: 0.75rem;
+      padding: 2px 6px;
+      border-radius: 3px;
+      width: fit-content;
+      margin: 3px 0;
+    }
+    .news-title {
+      font-size: 0.95rem;
+      color: var(--primary-color);
+      text-decoration: none;
+      font-weight: bold;
     }
 
-    /* フッター */
-    footer {
-      background: #333;
-      color: white;
-      text-align: center;
-      padding: 20px;
-      font-size: 0.8rem;
+    /* 5. 分かりやすい明朗料金表 */
+    .price-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
     }
+    .price-table th, .price-table td {
+      border: 1px solid #ccc;
+      padding: 10px;
+      text-align: left;
+      font-size: 0.9rem;
+    }
+    .price-table th { background: #E8F1F5; width: 35%; }
+    .price-val { font-weight: bold; color: var(--accent-orange); font-size: 1rem; }
 
-    /* スマホ画面下部の固定お問い合わせバー */
-    .fixed-bottom-bar {
+    /* 6. スマホ下部「追従型固定問い合わせバー」 */
+    .sticky-bottom-bar {
       position: fixed;
       bottom: 0;
       left: 0;
       width: 100%;
       display: flex;
-      background: #fff;
-      box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
-      z-index: 1000;
+      z-index: 999;
     }
-    .fixed-bottom-bar a {
+    .sticky-btn {
       flex: 1;
       text-align: center;
       padding: 12px 0;
-      color: white;
-      text-decoration: none;
+      color: #fff;
       font-weight: bold;
-      font-size: 0.95rem;
+      font-size: 1rem;
+      text-decoration: none;
     }
-    .bar-call { background: var(--accent); }
-    .bar-line { background: var(--secondary); }
+    .bg-tel { background: var(--accent-orange); }
+    .bg-line { background: var(--line-green); }
     
-    body { padding-bottom: 50px; } /* 固定バーの被り防止 */
+    body { padding-bottom: 50px; } /* 固定バーの重なり防止 */
   </style>
 </head>
 <body>
 
-  <!-- ヘッダー -->
+  <!-- 1. ヘッダー -->
   <header>
-    <div class="logo">リサイクル夢工房</div>
-    <a href="#" class="header-btn">LINEで査定</a>
+    <div class="logo-area">
+      リサイクル夢工房<br>
+      <span style="font-size:0.7rem; color:#555;">不用品回収・買取・遺品整理</span>
+    </div>
+    <div class="header-contact">
+      <span class="header-sub">【無料相談】タップで発信</span>
+      <a href="tel:0000000000" class="header-tel">📞 0120-XXX-XXX</a>
+    </div>
   </header>
 
-  <!-- ファーストビュー -->
+  <!-- 2. ファーストビュー -->
   <section class="hero">
-    <h1>お部屋の片付け・不用品回収<br>買取から遺品整理まで直行！</h1>
-    <p>1点の回収から一軒家丸ごとまで対応。<br>地域密着だからスピーディー＆安心の明朗会計！</p>
+    <span class="hero-badge">地域密着！即日対応可能</span>
+    <h1>不用品の回収・買取から<br>遺品整理まで丸ごとお任せ！</h1>
     
-    <div class="badges">
-      <span class="badge">安心の明朗会計</span>
-      <span class="badge">見積もり後の追加料金ゼロ</span>
-      <span class="badge">高価買取で費用相殺</span>
+    <div class="hero-points">
+      <ul>
+        <li>お見積り後の「不当な追加料金」は一切なし！</li>
+        <li>まだ使えるものは高価買取で「費用削減」！</li>
+        <li>1点のお片付けから一軒家丸ごと処分までOK</li>
+      </ul>
     </div>
 
-    <div class="cta-buttons">
-      <a href="tel:0000000000" class="btn-call">電話で無料相談（8:00〜20:00）</a>
-      <a href="#" class="btn-line">写真を送るだけ！LINE無料見積もり</a>
-    </div>
-  </section>
-
-  <!-- 選ばれる理由 -->
-  <section class="section bg-light">
-    <h2 class="section-title">リサイクル夢工房が選ばれる理由</h2>
-    <div class="features">
-      <div class="feature-card">
-        <h3>1. 高価買取で回収費用を大幅割引！</h3>
-        <p>状態の良い家電や家具、お品物はその場で高価買取いたします。不用品回収費用から買取り額を差し引くため、他社より格段にお得です。</p>
-      </div>
-      <div class="feature-card">
-        <h3>2. 見積もり後の追加費用は一切なし！</h3>
-        <p>作業前にお客様へ詳細な無料お見積もりをご提示します。ご納得いただいてからの作業となり、作業後の不当な追加請求は100%ございません。</p>
-      </div>
-      <div class="feature-card">
-        <h3>3. 遺品整理士・専門スタッフの親切対応</h3>
-        <p>大切な思い出の品を丁寧に整理・供養いたします。女性のお客様やご高齢の方お一人でも安心してご相談いただけます。</p>
-      </div>
+    <div class="cta-box">
+      <a href="tel:0000000000" class="btn-cta btn-tel">📞 今すぐお電話で無料相談</a>
+      <a href="#" class="btn-cta btn-line">💬 写真を送るだけ！LINE無料査定</a>
     </div>
   </section>
 
-  <!-- サービス・料金目安 -->
+  <!-- 3. 新着情報・作業日記（ブログ機能） -->
   <section class="section">
-    <h2 class="section-title">サービス内容・料金目安</h2>
-    <div class="services">
-      <div class="service-card">
-        <img src="https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?auto=format&fit=crop&w=600&q=80" alt="不用品回収">
-        <div class="service-content">
-          <h3>不用品回収・積み放題パック</h3>
-          <p>少量のお片付けから、引っ越し前の大量処分まで選べるお得なパックをご用意。</p>
-          <p class="price">軽トラパック：14,800円〜</p>
-        </div>
-      </div>
-      <div class="service-card">
-        <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=600&q=80" alt="遺品整理">
-        <div class="service-content">
-          <h3>遺品整理・生前整理</h3>
-          <p>ご遺族のお気持ちに寄り添い、お部屋の片付け・貴重品の捜索・供養までサポート。</p>
-          <p class="price">1K・お見積り無料</p>
-        </div>
-      </div>
-    </div>
+    <h2 class="section-title">新着情報・現場作業日記</h2>
+    <ul class="news-list">
+      <li class="news-item">
+        <span class="news-date">2026.09.08</span>
+        <span class="news-tag">施工事例</span>
+        <a href="#" class="news-title">〇〇市にて一軒家の遺品整理・買取り作業を行いました（ビフォーアフター写真あり）</a>
+      </li>
+      <li class="news-item">
+        <span class="news-date">2026.09.02</span>
+        <span class="news-tag">お知らせ</span>
+        <a href="#" class="news-title">【9月限定】不用品買取の強化キャンペーンを実施中！</a>
+      </li>
+      <li class="news-item">
+        <span class="news-date">2026.08.25</span>
+        <span class="news-tag">現場ブログ</span>
+        <a href="#" class="news-title">大型冷蔵庫や洗濯機1点からでも即日回収に伺います！</a>
+      </li>
+    </ul>
   </section>
 
-  <!-- フッター -->
-  <footer>
-    <p><strong>リサイクル夢工房</strong></p>
-    <p>古物商許可番号：第XXXXXXXX号</p>
-    <p>© Recycle Yumekoubou All Rights Reserved.</p>
-  </footer>
+  <!-- 4. 明朗な料金プラン -->
+  <section class="section" style="background:var(--bg-gray);">
+    <h2 class="section-title">分かりやすい目安料金</h2>
+    <p style="font-size:0.85rem; color:#555;">※状態が良いものは買い取りし、下記費用から相殺（お値引き）いたします！</p>
+    
+    <table class="price-table">
+      <tr>
+        <th>軽トラ積み放題</th>
+        <td><span class="price-val">14,800円〜</span><br>押し入れのお片付け・一人暮らしの引越し等</td>
+      </tr>
+      <tr>
+        <th>2tトラックパック</th>
+        <td><span class="price-val">39,800円〜</span><br>2DK程度のお部屋・家具家電のまとめ処分</td>
+      </tr>
+      <tr>
+        <th>遺品整理・生前整理</th>
+        <td><span class="price-val">現地お見積り無料</span><br>ご供養・貴重品の捜索も丁寧に実施</td>
+      </tr>
+    </table>
+  </section>
 
-  <!-- スマホ画面下部の固定問い合わせボタン -->
-  <div class="fixed-bottom-bar">
-    <a href="tel:0000000000" class="bar-call">電話でお問合せ</a>
-    <a href="#" class="bar-line">LINEで無料査定</a>
+  <!-- 5. 画面下部に固定される「電話＆LINE」ボタン -->
+  <div class="sticky-bottom-bar">
+    <a href="tel:0000000000" class="sticky-btn bg-tel">📞 電話で相談</a>
+    <a href="#" class="sticky-btn bg-line">💬 LINEで査定</a>
   </div>
 
 </body>
