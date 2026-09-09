@@ -1,272 +1,508 @@
-<!DOCTYPE html>
+[source: 2, 3]<!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>リサイクル夢工房 | 不用品回収・買取・遺品整理【無料見積もり】</title>
-  <style>
-    :root {
-      --primary-color: #0B60B0; /* 誠実な深みのあるブルー */
-      --line-green: #06C755;    /* LINEの基本カラー */
-      --accent-orange: #FF6B00; /* 目立つオレンジ（電話・CTA） */
-      --bg-gray: #F8F9FA;
-      --text-main: #222222;
-    }
-    body {
-      font-family: "Hiragino Kaku Gothic ProN", "Meiryo", sans-serif;
-      margin: 0;
-      padding: 0;
-      color: var(--text-main);
-      background-color: #fff;
-      line-height: 1.5;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>リサイクルショップ夢工房 | 小樽市張碓町の買取・販売・不用品処分</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #f7f4ee;
+    --panel: #ffffff;
+    --ink: #2c2a25;
+    --ink-soft: #5b5750;
+    --teal: #1f6f6f;
+    --teal-deep: #154f4f;
+    --rust: #a15530;
+    --rust-soft: #c97a4a;
+    --line: #e3ddd0;
+  }
 
-    /* 1. ヘッダー（連絡先を最上部に常時固定） */
-    header {
-      background: #fff;
-      padding: 10px 15px;
-      border-bottom: 2px solid var(--primary-color);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
-    .logo-area {
-      font-size: 1.1rem;
-      font-weight: bold;
-      color: var(--primary-color);
-    }
-    .header-contact {
-      text-align: right;
-    }
-    .header-tel {
-      font-size: 1.2rem;
-      font-weight: bold;
-      color: var(--accent-orange);
-      text-decoration: none;
-    }
-    .header-sub { font-size: 0.7rem; color: #666; display: block; }
+  * { box-sizing: border-box; }
 
-    /* 2. ヒーローセクション（一目で要点が伝わる構成） */
-    .hero {
-      background: #E8F1F5;
-      padding: 20px 15px;
-      text-align: center;
-    }
-    .hero-badge {
-      background: var(--accent-orange);
-      color: #fff;
-      font-size: 0.85rem;
-      font-weight: bold;
-      padding: 4px 12px;
-      border-radius: 20px;
-      display: inline-block;
-      margin-bottom: 10px;
-    }
-    .hero h1 {
-      font-size: 1.4rem;
-      margin: 0 0 10px 0;
-      color: #111;
-      line-height: 1.3;
-    }
-    .hero-points {
-      background: #fff;
-      border: 2px solid var(--primary-color);
-      border-radius: 8px;
-      padding: 12px;
-      margin: 15px 0;
-      text-align: left;
-    }
-    .hero-points li {
-      list-style: none;
-      font-weight: bold;
-      font-size: 0.95rem;
-      margin-bottom: 5px;
-      color: var(--primary-color);
-    }
-    .hero-points li::before { content: "✔ "; color: var(--accent-orange); }
+  body {
+    margin: 0;
+    background: var(--cream);
+    font-family: 'Zen Kaku Gothic New', sans-serif;
+    color: var(--ink);
+    line-height: 1.6;
+  }
 
-    /* 3. ワンタップでつながる「超強調メガCTA」 */
-    .cta-box {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      margin-top: 15px;
-    }
-    .btn-cta {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 15px;
-      border-radius: 8px;
-      text-decoration: none;
-      color: #fff;
-      font-weight: bold;
-      font-size: 1.1rem;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.15);
-    }
-    .btn-tel { background: var(--accent-orange); }
-    .btn-line { background: var(--line-green); }
+  /* ---- Header ---- */
+  header {
+    background: var(--panel);
+    border-bottom: 1px solid var(--line);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
 
-    /* 4. お知らせ・現場ブログセクション（新規追加） */
-    .section { padding: 30px 15px; }
-    .section-title {
-      font-size: 1.2rem;
-      border-left: 5px solid var(--primary-color);
-      padding-left: 10px;
-      margin-bottom: 15px;
-      color: var(--primary-color);
-    }
-    .news-list {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-    .news-item {
-      border-bottom: 1px dashed #ccc;
-      padding: 10px 0;
-      display: flex;
-      flex-direction: column;
-    }
-    .news-date { font-size: 0.8rem; color: #777; }
-    .news-tag {
-      display: inline-block;
-      background: #e0e0e0;
-      font-size: 0.75rem;
-      padding: 2px 6px;
-      border-radius: 3px;
-      width: fit-content;
-      margin: 3px 0;
-    }
-    .news-title {
-      font-size: 0.95rem;
-      color: var(--primary-color);
-      text-decoration: none;
-      font-weight: bold;
-    }
+  .nav-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 12px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
 
-    /* 5. 分かりやすい明朗料金表 */
-    .price-table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 10px;
-    }
-    .price-table th, .price-table td {
-      border: 1px solid #ccc;
-      padding: 10px;
-      text-align: left;
-      font-size: 0.9rem;
-    }
-    .price-table th { background: #E8F1F5; width: 35%; }
-    .price-val { font-weight: bold; color: var(--accent-orange); font-size: 1rem; }
+  .site-title {
+    font-family: 'Shippori Mincho', serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--teal-deep);
+    text-decoration: none;
+  }
 
-    /* 6. スマホ下部「追従型固定問い合わせバー」 */
-    .sticky-bottom-bar {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      display: flex;
-      z-index: 999;
-    }
-    .sticky-btn {
-      flex: 1;
-      text-align: center;
-      padding: 12px 0;
-      color: #fff;
-      font-weight: bold;
-      font-size: 1rem;
-      text-decoration: none;
-    }
-    .bg-tel { background: var(--accent-orange); }
-    .bg-line { background: var(--line-green); }
-    
-    body { padding-bottom: 50px; } /* 固定バーの重なり防止 */
-  </style>
+  .nav-links {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .nav-links a {
+    text-decoration: none;
+    color: var(--ink);
+    font-weight: 700;
+    font-size: 14px;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover {
+    color: var(--rust);
+  }
+
+  /* ---- Main Container ---- */
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px 20px 60px;
+  }
+
+  /* ---- Hero Visual ---- */
+  .hero-visual {
+    position: relative;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 18px 34px -16px rgba(44,42,37,0.4);
+    border: 1px solid var(--line);
+    margin-bottom: 48px;
+  }
+
+  .hero-visual img {
+    width: 100%;
+    display: block;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+  }
+
+  .hero-tag {
+    position: absolute;
+    top: 18px;
+    left: 18px;
+    padding: 9px 20px 10px;
+    border-radius: 8px;
+    background: var(--teal-deep);
+    color: #fff;
+    font-family: 'Shippori Mincho', serif;
+    font-weight: 700;
+    font-size: 18px;
+    letter-spacing: .03em;
+    box-shadow: 0 8px 18px -6px rgba(0,0,0,.4);
+  }
+
+  .hero-hours {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    padding: 9px 16px;
+    border-radius: 8px;
+    background: rgba(255,255,255,.92);
+    color: var(--ink);
+    font-size: 13px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+  }
+
+  .hero-hours svg {
+    width: 15px;
+    height: 15px;
+    stroke: var(--teal-deep);
+  }
+
+  .hero-cap {
+    position: absolute;
+    left: 18px;
+    right: 18px;
+    bottom: 16px;
+    color: #fff;
+    font-size: 13.5px;
+    line-height: 1.7;
+    text-shadow: 0 2px 10px rgba(0,0,0,.8);
+    background: linear-gradient(transparent, rgba(0,0,0,0.6));
+    padding: 20px 10px 5px;
+    border-radius: 0 0 12px 12px;
+  }
+
+  /* ---- Section Titles ---- */
+  .section-header {
+    margin-bottom: 30px;
+  }
+
+  .eyebrow-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 12px;
+  }
+
+  .eyebrow-row .bar {
+    width: 34px;
+    height: 2px;
+    background: var(--rust-soft);
+  }
+
+  .eyebrow {
+    font-size: 13px;
+    letter-spacing: .12em;
+    color: var(--rust);
+    font-weight: 700;
+  }
+
+  h1, h2 {
+    font-family: 'Shippori Mincho', serif;
+    font-weight: 700;
+    font-size: 34px;
+    line-height: 1.5;
+    margin: 0 0 12px;
+  }
+
+  .accent {
+    color: var(--teal-deep);
+  }
+
+  .sub {
+    font-size: 15.5px;
+    color: var(--ink-soft);
+    line-height: 1.9;
+    margin: 0 0 32px;
+    max-width: 58ch;
+  }
+
+  /* ---- Section Separator ---- */
+  .section-block {
+    margin-bottom: 64px;
+    scroll-margin-top: 80px;
+  }
+
+  /* ---- Service Panels ---- */
+  .panels {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 22px;
+  }
+
+  .panel {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 28px 26px 26px;
+    box-shadow: 0 14px 28px -18px rgba(44,42,37,0.35);
+  }
+
+  .panel-head {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .panel-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .panel.sell .panel-icon { background: linear-gradient(160deg, var(--teal) 0%, var(--teal-deep) 100%); }
+  .panel.clear .panel-icon { background: linear-gradient(160deg, var(--rust-soft) 0%, var(--rust) 100%); }
+  .panel-icon svg { width: 22px; height: 22px; stroke: #fff; fill: none; }
+
+  .panel-title {
+    font-family: 'Shippori Mincho', serif;
+    font-weight: 700;
+    font-size: 20px;
+  }
+
+  .panel-title small {
+    display: block;
+    font-family: 'Zen Kaku Gothic New', sans-serif;
+    font-size: 11.5px;
+    font-weight: 700;
+    letter-spacing: .1em;
+    color: var(--ink-soft);
+    margin-bottom: 2px;
+  }
+
+  .item-list { margin: 0; padding: 0; list-style: none; }
+  .item-list li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--ink);
+    padding: 12px 2px;
+    border-bottom: 1px dashed var(--line);
+  }
+  .item-list li:last-child { border-bottom: none; }
+
+  .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .panel.sell .dot { background: var(--teal); }
+  .panel.clear .dot { background: var(--rust); }
+
+  .note {
+    margin-top: 20px;
+    font-size: 11.5px;
+    line-height: 1.7;
+    color: var(--ink-soft);
+    background: #f3efe4;
+    border-radius: 8px;
+    padding: 10px 12px;
+  }
+
+  /* ---- Access Block ---- */
+  .access-block {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 26px;
+    align-items: start;
+  }
+
+  .map-frame {
+    position: relative;
+    border-radius: 14px;
+    overflow: hidden;
+    border: 1px solid var(--line);
+    box-shadow: 0 14px 28px -14px rgba(44,42,37,0.35);
+    background: #dce35a;
+  }
+
+  .map-frame img {
+    width: 100%;
+    display: block;
+  }
+
+  .map-tag {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    padding: 6px 14px 7px;
+    border-radius: 8px;
+    background: var(--rust);
+    color: #fff;
+    font-size: 12.5px;
+    font-weight: 700;
+    letter-spacing: .03em;
+    box-shadow: 0 6px 14px -6px rgba(0,0,0,.4);
+  }
+
+  .details {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 26px 24px;
+  }
+
+  .details-title {
+    font-family: 'Shippori Mincho', serif;
+    font-size: 20px;
+    font-weight: 700;
+    margin: 0 0 18px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .d-row {
+    display: flex;
+    gap: 14px;
+    margin-bottom: 18px;
+    align-items: flex-start;
+  }
+  .d-row:last-child { margin-bottom: 0; }
+
+  .d-icon {
+    flex-shrink: 0;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: linear-gradient(160deg, var(--teal) 0%, var(--teal-deep) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .d-icon svg { width: 18px; height: 18px; stroke: #fff; fill: none; }
+  .d-text { font-size: 14px; line-height: 1.75; color: var(--ink-soft); padding-top: 4px; }
+  .d-text strong { display: block; color: var(--ink); font-size: 13px; font-weight: 700; margin-bottom: 2px; letter-spacing: .02em; }
+
+  /* ---- CTA Block ---- */
+  .cta {
+    background: var(--ink);
+    border-radius: 16px;
+    padding: 30px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    color: #f2ede2;
+  }
+
+  .cta-left { display: flex; align-items: center; gap: 16px; }
+
+  .estimate-badge {
+    flex-shrink: 0;
+    background: linear-gradient(160deg, var(--rust-soft) 0%, var(--rust) 100%);
+    color: #fff;
+    font-weight: 700;
+    font-size: 15px;
+    letter-spacing: .03em;
+    padding: 12px 20px;
+    border-radius: 999px;
+    box-shadow: 0 8px 18px -6px rgba(0,0,0,.5);
+    white-space: nowrap;
+  }
+
+  .cta-text { font-size: 13px; line-height: 1.7; color: #d8d2c4; max-width: 26ch; }
+  .cta-right { text-align: right; }
+
+  .phone {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: flex-end;
+    font-family: 'Shippori Mincho', serif;
+    font-weight: 700;
+    font-size: 34px;
+    color: #fff;
+    letter-spacing: .02em;
+  }
+
+  .phone svg { width: 24px; height: 24px; stroke: #fff; fill: none; }
+  .addr { margin-top: 6px; font-size: 12.5px; color: #c9c2b3; }
+
+  /* ---- Footer ---- */
+  footer {
+    background: var(--ink);
+    border-top: 1px solid rgba(255,255,255,0.1);
+    color: #c9c2b3;
+    text-align: center;
+    padding: 24px 20px;
+    font-size: 12px;
+  }
+
+  /* ---- Responsive ---- */
+  @media (max-width: 640px) {
+    .container { padding: 24px 16px 40px; }
+    h1, h2 { font-size: 26px; }
+    .panels { grid-template-columns: 1fr; }
+    .access-block { grid-template-columns: 1fr; }
+    .cta { flex-direction: column; align-items: flex-start; }
+    .cta-right { text-align: left; width: 100%; }
+    .phone { justify-content: flex-start; font-size: 28px; }
+  }
+</style>
 </head>
 <body>
 
-  <!-- 1. ヘッダー -->
-  <header>
-    <div class="logo-area">
-      リサイクル夢工房<br>
-      <span style="font-size:0.7rem; color:#555;">不用品回収・買取・遺品整理</span>
-    </div>
-    <div class="header-contact">
-      <span class="header-sub">【無料相談】タップで発信</span>
-      <a href="tel:0000000000" class="header-tel">📞 0120-XXX-XXX</a>
-    </div>
-  </header>
-
-  <!-- 2. ファーストビュー -->
-  <section class="hero">
-    <span class="hero-badge">地域密着！即日対応可能</span>
-    <h1>不用品の回収・買取から<br>遺品整理まで丸ごとお任せ！</h1>
-    
-    <div class="hero-points">
-      <ul>
-        <li>お見積り後の「不当な追加料金」は一切なし！</li>
-        <li>まだ使えるものは高価買取で「費用削減」！</li>
-        <li>1点のお片付けから一軒家丸ごと処分までOK</li>
-      </ul>
-    </div>
-
-    <div class="cta-box">
-      <a href="tel:0000000000" class="btn-cta btn-tel">📞 今すぐお電話で無料相談</a>
-      <a href="#" class="btn-cta btn-line">💬 写真を送るだけ！LINE無料査定</a>
-    </div>
-  </section>
-
-  <!-- 3. 新着情報・作業日記（ブログ機能） -->
-  <section class="section">
-    <h2 class="section-title">新着情報・現場作業日記</h2>
-    <ul class="news-list">
-      <li class="news-item">
-        <span class="news-date">2026.09.08</span>
-        <span class="news-tag">施工事例</span>
-        <a href="#" class="news-title">〇〇市にて一軒家の遺品整理・買取り作業を行いました（ビフォーアフター写真あり）</a>
-      </li>
-      <li class="news-item">
-        <span class="news-date">2026.09.02</span>
-        <span class="news-tag">お知らせ</span>
-        <a href="#" class="news-title">【9月限定】不用品買取の強化キャンペーンを実施中！</a>
-      </li>
-      <li class="news-item">
-        <span class="news-date">2026.08.25</span>
-        <span class="news-tag">現場ブログ</span>
-        <a href="#" class="news-title">大型冷蔵庫や洗濯機1点からでも即日回収に伺います！</a>
-      </li>
+<header>
+  <div class="nav-container">
+    <a href="#" class="site-title">リサイクルショップ夢工房</a>
+    <ul class="nav-links">
+      <li><a href="#services">サービス内容</a></li>
+      <li><a href="#access">アクセス・店舗案内</a></li>
     </ul>
-  </section>
+  </div>
+</header>
 
-  <!-- 4. 明朗な料金プラン -->
-  <section class="section" style="background:var(--bg-gray);">
-    <h2 class="section-title">分かりやすい目安料金</h2>
-    <p style="font-size:0.85rem; color:#555;">※状態が良いものは買い取りし、下記費用から相殺（お値引き）いたします！</p>
-    
-    <table class="price-table">
-      <tr>
-        <th>軽トラ積み放題</th>
-        <td><span class="price-val">14,800円〜</span><br>押し入れのお片付け・一人暮らしの引越し等</td>
-      </tr>
-      <tr>
-        <th>2tトラックパック</th>
-        <td><span class="price-val">39,800円〜</span><br>2DK程度のお部屋・家具家電のまとめ処分</td>
-      </tr>
-      <tr>
-        <th>遺品整理・生前整理</th>
-        <td><span class="price-val">現地お見積り無料</span><br>ご供養・貴重品の捜索も丁寧に実施</td>
-      </tr>
-    </table>
-  </section>
+<main class="container">
 
-  <!-- 5. 画面下部に固定される「電話＆LINE」ボタン -->
-  <div class="sticky-bottom-bar">
-    <a href="tel:0000000000" class="sticky-btn bg-tel">📞 電話で相談</a>
-    <a href="#" class="sticky-btn bg-line">💬 LINEで査定</a>
+  <!-- Hero Visual -->
+  <div class="hero">
+    <div class="hero-visual">
+      <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAUEBAQEAwUEBAQGBQUGCA0ICAcHCBALDAkNExAUExIQEhIUFx0ZFBYcFhISGiMaHB4fISEhFBkkJyQgJh0gISD/2wBDAQUGBggHCA8ICA8gFRIVICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICD/wAARCALTA7QDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD07/hoj/qT/wDyof8A2qk/4aJ/6k//AMqH/BqrwjFAHNff/2Rg/5Pxf8AmfmDzvMP+fn4R/yPd/8Ahor/AKk//wAqH/2qj/hon/qTv/Kh/wDaq8L28dKFAB5o/sjB/wAn4v8AzF/bmY/8/Pwj/ke6j9og/wDQnf8AlQ/+1Uv/AA0P/wBSh/5UP/tVeHErjioj1o/sjB/yfi/8x/25mH/Pz8I/5Hu3/DQ//Uof+VD/AO1Uf8ND/wDUn/8AlQ/+1V4PzTwaP7Iwf8n4v/MP7cx//Pz8I/5Hu3/DQx/6E/8A8qH/ANqoP7Qx/ChP88qH/2qrwvcKTcKP7Iwf8AJ+L/AMxvPMw/5+fhH/I9zP7RBH/Mnf8AlQ/+1Un/AA0Sf+hO/wDKh/8Aaq8O4NMK80/7IwX8n4v/ADJ/t3MP+fn4R/yPdP8Ahon/AKk//wAqH/2qj/hon/qT/wDyof8A2qvCSKbij+yMF/J+L/zM/wC3sx/5+fhH/I95/4aJ/6k//wAqH/2qUftD5/5lL/yf/wDtdKP2glP/ADKf/k//APa68Aw9PAbFL+yMH/J+L/zNFn2P/n/CP+R7237QYUZ/4RLP/b//APa6iP7ROD/yJ/8A5UP/ALVXhOW70xqP7Iwf8n4v/MHn2P6VPwj/AJHvH/DRX/Un/wDlQ/8AtVJ/0X/1N3/lQ/8AtVeCoNLTWUYL+T8X/mZf2/mH/Pz8I/5HvP/DRf/Unf+VD/7VR/w0X/1J3/lQ/wDtVeDRVf2Pgv5Pxf+Yv7fzH/n5+Ef8j3n/hov/qTv/Kh/9qo/4aL/6k7/yof8A2qvBaQ0f2Pgv5Pxf+Y/7fzH/AJ+fhH/I95/4aL/6k7/yof8A2qj/AIaL/CpO/8qH/2qvBaKP7IwX8n4v/MP7fzH/AJ+fhH/I96/4aL/6k7/yof8A2qj/AIaL/CpO/8qH/2qvBaQ0f2Pgv5Pxf+Y/7ezD/n5+Ef8j3r/hoz/qTv/Kh/9qo/4aM/6k7/yof8A2qvBKKP7HxX8n4v/AMw/t7MP+fn4R/yPe/8Ahoz/Aqn7yof/AGqj/hoz/qTv/Kh/9qrwSij+x8F/J+L/AMw/t7MP+fn4R/yPe/8Ahoz/AAn7yof/AAGpT/w0X/1J3/lQ/wDtVeB0v4Unk+C/k/F/5h/b2Yf8/Pwj/ke9/wDDRf/Unf+VD/7VR/w0V/1J3/lQ/wDtVeCg0Zpf2Rgv5Pxf+Yf2/mH/AD8/CP+R71/x0X/1J3/lQ/8AtVT?x=" alt="リサイクルショップ夢工房 店舗外観">
+      <span class="hero-tag">夢工房</span>
+      <span class="hero-hours">
+        <svg viewBox="0 0 24 24" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+        10:00〜18:00
+      </span>
+      <span class="hero-cap">黄色い大きな看板が目印。国道5号線沿いの倉庫型店舗です。[span_0](start_span)[span_0](end_span)</span>
+    </div>
   </div>
 
-</body>
-</html>
+  <!-- Services Section -->
+  <section id="services" class="section-block">
+    <div class="section-header">
+      <div class="eyebrow-row"><span class="bar"></span><span class="eyebrow">SERVICES</span></div>[span_1](start_span)[span_1](end_span)
+      <h1>売るも、<span class="accent">片付けるも、</span><br>まずはお気軽にご相談を。</h1>[span_2](start_span)[span_2](end_span)
+      <p class="sub">生活用品から工具、自転車まで販売・買取。引越しや遺品整理、空き家の片付けまで、不用品の処分もまとめてお任せください。</p>[span_3](start_span)[span_3](end_span)
+    </div>
+
+    <div class="panels">
+      <div class="panel sell">
+        <div class="panel-head">
+          <div class="panel-icon"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7l2-4h14l2 4"/><path d="M3 7h18v13H3z"/><path d="M9 11a3 3 0 006 0"/></svg></div>[span_4](start_span)[span_4](end_span)
+          <div class="panel-title"><small>SELL &amp; BUY</small>販売・買取</div>[span_5](start_span)[span_5](end_span)
+        </div>
+        <ul class="item-list">
+          <li><span class="dot"></span>生活用品</li>[span_6](start_span)[span_6](end_span)
+          <li><span class="dot"></span>工具・除雪機</li>[span_7](start_span)[span_7](end_span)
+          <li><span class="dot"></span>自転車・その他</li>[span_8](start_span)[span_8](end_span)
+        </ul>
+      </div>
+
+      <div class="panel clear">
+        <div class="panel-head">
+          <div class="panel-icon"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16"/><path d="M6 7l1 13h10l1-13"/><path d="M10 3h4l1 4H9z"/></svg></div>[span_9](start_span)[span_9](end_span)
+          <div class="panel-title"><small>CLEAR OUT</small>不用品の処分</div>[span_10](start_span)[span_10](end_span)
+        </div>
+        <ul class="item-list">
+          <li><span class="dot"></span>引越後の不用品片付</li>[span_11](start_span)[span_11](end_span)
+          <li><span class="dot"></span>ゴミ屋敷の片付</li>[span_12](start_span)[span_12](end_span)
+          <li><span class="dot"></span>遺品整理</li>[span_13](start_span)[span_13](end_span)
+          <li><span class="dot"></span>空き家の片付</li>[span_14](start_span)[span_14](end_span)
+        </ul>
+        <div class="note">一般廃棄物の運搬・廃棄は(一財)札幌市環境事業公社へ依頼しています。</div>[span_15](start_span)[span_15](end_span)
+      </div>
+    </div>
+  </section>
+
+  <!-- Access Section -->
+  <section id="access" class="section-block">
+    <div class="section-header">
+      <div class="eyebrow-row"><span class="bar"></span><span class="eyebrow">ACCESS</span></div>[span_16](start_span)[span_16](end_span)
+      <h2>目印は、<span class="accent">黄色い看板。</span><br>国道5号線沿いでお待ちしています。</h2>[span_17](start_span)[span_17](end_span)
+      <p class="sub">小樽市張碓町、国道5号線沿いの大きな建物です。小樽方面からも札幌方面からも分かりやすい立地です。</p>[span_18](start_span)[span_18](end_span)
+    </div>
+
+    <div class="access-block">
+      <div class="map-frame">
+        <span class="map-tag">案内図</span>[span_19](start_span)[span_19](end_span)
+        <img src="data:image/jpeg;base64,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
