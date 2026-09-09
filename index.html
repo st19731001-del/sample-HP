@@ -1,4 +1,4 @@
-[source: 2, 3]<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
@@ -18,6 +18,7 @@
     --rust: #a15530;
     --rust-soft: #c97a4a;
     --line: #e3ddd0;
+    --yellow-bg: #f5e050;
   }
 
   * { box-sizing: border-box; }
@@ -42,7 +43,7 @@
   .nav-container {
     max-width: 1000px;
     margin: 0 auto;
-    padding: 12px 20px;
+    padding: 14px 20px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -80,7 +81,7 @@
   .container {
     max-width: 900px;
     margin: 0 auto;
-    padding: 40px 20px 60px;
+    padding: 30px 20px 60px;
   }
 
   /* ---- Hero Visual ---- */
@@ -88,98 +89,93 @@
     position: relative;
     border-radius: 16px;
     overflow: hidden;
-    box-shadow: 0 18px 34px -16px rgba(44,42,37,0.4);
+    box-shadow: 0 12px 28px -10px rgba(44,42,37,0.25);
     border: 1px solid var(--line);
-    margin-bottom: 48px;
+    margin-bottom: 40px;
+    background: linear-gradient(135deg, #154f4f 0%, #1f6f6f 100%);
+    color: #ffffff;
+    padding: 40px 30px;
   }
 
-  .hero-visual img {
-    width: 100%;
-    display: block;
-    aspect-ratio: 16/9;
-    object-fit: cover;
+  .hero-content {
+    max-width: 600px;
+    position: relative;
+    z-index: 2;
   }
 
   .hero-tag {
-    position: absolute;
-    top: 18px;
-    left: 18px;
-    padding: 9px 20px 10px;
-    border-radius: 8px;
-    background: var(--teal-deep);
+    display: inline-block;
+    padding: 6px 16px;
+    border-radius: 6px;
+    background: var(--rust);
     color: #fff;
-    font-family: 'Shippori Mincho', serif;
     font-weight: 700;
-    font-size: 18px;
-    letter-spacing: .03em;
-    box-shadow: 0 8px 18px -6px rgba(0,0,0,.4);
+    font-size: 14px;
+    margin-bottom: 16px;
   }
 
-  .hero-hours {
-    position: absolute;
-    top: 18px;
-    right: 18px;
-    padding: 9px 16px;
+  .hero-title {
+    font-family: 'Shippori Mincho', serif;
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 1.4;
+    margin: 0 0 16px;
+  }
+
+  .hero-desc {
+    font-size: 15px;
+    line-height: 1.8;
+    color: #e2f0f0;
+    margin: 0 0 24px;
+  }
+
+  .hero-badge-container {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  .hero-badge {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 8px 14px;
     border-radius: 8px;
-    background: rgba(255,255,255,.92);
-    color: var(--ink);
     font-size: 13px;
     font-weight: 700;
-    display: flex;
-    align-items: center;
-    gap: 7px;
-  }
-
-  .hero-hours svg {
-    width: 15px;
-    height: 15px;
-    stroke: var(--teal-deep);
-  }
-
-  .hero-cap {
-    position: absolute;
-    left: 18px;
-    right: 18px;
-    bottom: 16px;
-    color: #fff;
-    font-size: 13.5px;
-    line-height: 1.7;
-    text-shadow: 0 2px 10px rgba(0,0,0,.8);
-    background: linear-gradient(transparent, rgba(0,0,0,0.6));
-    padding: 20px 10px 5px;
-    border-radius: 0 0 12px 12px;
   }
 
   /* ---- Section Titles ---- */
-  .section-header {
-    margin-bottom: 30px;
+  .section-block {
+    margin-bottom: 56px;
+    scroll-margin-top: 80px;
   }
 
   .eyebrow-row {
     display: flex;
     align-items: center;
-    gap: 14px;
-    margin-bottom: 12px;
+    gap: 12px;
+    margin-bottom: 8px;
   }
 
   .eyebrow-row .bar {
-    width: 34px;
+    width: 28px;
     height: 2px;
     background: var(--rust-soft);
   }
 
   .eyebrow {
     font-size: 13px;
-    letter-spacing: .12em;
+    letter-spacing: .1em;
     color: var(--rust);
     font-weight: 700;
   }
 
-  h1, h2 {
+  h2 {
     font-family: 'Shippori Mincho', serif;
     font-weight: 700;
-    font-size: 34px;
-    line-height: 1.5;
+    font-size: 28px;
+    line-height: 1.4;
     margin: 0 0 12px;
   }
 
@@ -188,32 +184,25 @@
   }
 
   .sub {
-    font-size: 15.5px;
+    font-size: 15px;
     color: var(--ink-soft);
-    line-height: 1.9;
-    margin: 0 0 32px;
-    max-width: 58ch;
-  }
-
-  /* ---- Section Separator ---- */
-  .section-block {
-    margin-bottom: 64px;
-    scroll-margin-top: 80px;
+    line-height: 1.8;
+    margin: 0 0 28px;
   }
 
   /* ---- Service Panels ---- */
   .panels {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 22px;
+    gap: 20px;
   }
 
   .panel {
     background: var(--panel);
     border: 1px solid var(--line);
     border-radius: 16px;
-    padding: 28px 26px 26px;
-    box-shadow: 0 14px 28px -18px rgba(44,42,37,0.35);
+    padding: 26px;
+    box-shadow: 0 10px 20px -12px rgba(44,42,37,0.15);
   }
 
   .panel-head {
@@ -221,13 +210,13 @@
     align-items: center;
     gap: 12px;
     margin-bottom: 20px;
-    padding-bottom: 16px;
+    padding-bottom: 14px;
     border-bottom: 1px solid var(--line);
   }
 
   .panel-icon {
-    width: 44px;
-    height: 44px;
+    width: 42px;
+    height: 42px;
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -235,8 +224,8 @@
     flex-shrink: 0;
   }
 
-  .panel.sell .panel-icon { background: linear-gradient(160deg, var(--teal) 0%, var(--teal-deep) 100%); }
-  .panel.clear .panel-icon { background: linear-gradient(160deg, var(--rust-soft) 0%, var(--rust) 100%); }
+  .panel.sell .panel-icon { background: var(--teal); }
+  .panel.clear .panel-icon { background: var(--rust); }
   .panel-icon svg { width: 22px; height: 22px; stroke: #fff; fill: none; }
 
   .panel-title {
@@ -248,22 +237,21 @@
   .panel-title small {
     display: block;
     font-family: 'Zen Kaku Gothic New', sans-serif;
-    font-size: 11.5px;
+    font-size: 11px;
     font-weight: 700;
     letter-spacing: .1em;
     color: var(--ink-soft);
-    margin-bottom: 2px;
   }
 
   .item-list { margin: 0; padding: 0; list-style: none; }
   .item-list li {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 10px;
     font-size: 15px;
     font-weight: 500;
     color: var(--ink);
-    padding: 12px 2px;
+    padding: 10px 0;
     border-bottom: 1px dashed var(--line);
   }
   .item-list li:last-child { border-bottom: none; }
@@ -279,9 +267,9 @@
   .panel.clear .dot { background: var(--rust); }
 
   .note {
-    margin-top: 20px;
-    font-size: 11.5px;
-    line-height: 1.7;
+    margin-top: 18px;
+    font-size: 12px;
+    line-height: 1.6;
     color: var(--ink-soft);
     background: #f3efe4;
     border-radius: 8px;
@@ -291,87 +279,94 @@
   /* ---- Access Block ---- */
   .access-block {
     display: grid;
-    grid-template-columns: 1.1fr 1fr;
-    gap: 26px;
-    align-items: start;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
   }
 
-  .map-frame {
-    position: relative;
-    border-radius: 14px;
-    overflow: hidden;
-    border: 1px solid var(--line);
-    box-shadow: 0 14px 28px -14px rgba(44,42,37,0.35);
-    background: #dce35a;
+  .map-card {
+    background: #fdfbc7;
+    border: 2px dashed #e0ca3c;
+    border-radius: 16px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
   }
 
-  .map-frame img {
-    width: 100%;
-    display: block;
-  }
-
-  .map-tag {
-    position: absolute;
-    top: 14px;
-    left: 14px;
-    padding: 6px 14px 7px;
-    border-radius: 8px;
+  .map-card-tag {
     background: var(--rust);
     color: #fff;
-    font-size: 12.5px;
+    font-size: 13px;
     font-weight: 700;
-    letter-spacing: .03em;
-    box-shadow: 0 6px 14px -6px rgba(0,0,0,.4);
+    padding: 4px 12px;
+    border-radius: 6px;
+    margin-bottom: 12px;
+  }
+
+  .map-card-title {
+    font-family: 'Shippori Mincho', serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 12px;
+  }
+
+  .map-card-desc {
+    font-size: 14px;
+    color: var(--ink-soft);
+    line-height: 1.7;
   }
 
   .details {
     background: var(--panel);
     border: 1px solid var(--line);
-    border-radius: 14px;
-    padding: 26px 24px;
+    border-radius: 16px;
+    padding: 24px;
   }
 
   .details-title {
     font-family: 'Shippori Mincho', serif;
     font-size: 20px;
     font-weight: 700;
-    margin: 0 0 18px;
-    padding-bottom: 14px;
+    margin: 0 0 16px;
+    padding-bottom: 12px;
     border-bottom: 1px solid var(--line);
   }
 
   .d-row {
     display: flex;
-    gap: 14px;
-    margin-bottom: 18px;
+    gap: 12px;
+    margin-bottom: 16px;
     align-items: flex-start;
   }
   .d-row:last-child { margin-bottom: 0; }
 
   .d-icon {
     flex-shrink: 0;
-    width: 36px;
-    height: 36px;
+    width: 32px;
+    height: 32px;
     border-radius: 50%;
-    background: linear-gradient(160deg, var(--teal) 0%, var(--teal-deep) 100%);
+    background: var(--teal);
     display: flex;
     align-items: center;
     justify-content: center;
   }
 
-  .d-icon svg { width: 18px; height: 18px; stroke: #fff; fill: none; }
-  .d-text { font-size: 14px; line-height: 1.75; color: var(--ink-soft); padding-top: 4px; }
-  .d-text strong { display: block; color: var(--ink); font-size: 13px; font-weight: 700; margin-bottom: 2px; letter-spacing: .02em; }
+  .d-icon svg { width: 16px; height: 16px; stroke: #fff; fill: none; }
+  .d-text { font-size: 14px; line-height: 1.6; color: var(--ink-soft); }
+  .d-text strong { display: block; color: var(--ink); font-size: 13px; font-weight: 700; }
 
   /* ---- CTA Block ---- */
   .cta {
     background: var(--ink);
     border-radius: 16px;
-    padding: 30px 32px;
+    padding: 28px 30px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 24px;
+    gap: 20px;
     color: #f2ede2;
   }
 
@@ -379,34 +374,29 @@
 
   .estimate-badge {
     flex-shrink: 0;
-    background: linear-gradient(160deg, var(--rust-soft) 0%, var(--rust) 100%);
+    background: var(--rust);
     color: #fff;
     font-weight: 700;
     font-size: 15px;
-    letter-spacing: .03em;
-    padding: 12px 20px;
+    padding: 10px 18px;
     border-radius: 999px;
-    box-shadow: 0 8px 18px -6px rgba(0,0,0,.5);
-    white-space: nowrap;
   }
 
-  .cta-text { font-size: 13px; line-height: 1.7; color: #d8d2c4; max-width: 26ch; }
-  .cta-right { text-align: right; }
+  .cta-text { font-size: 13px; line-height: 1.6; color: #d8d2c4; }
 
   .phone {
     display: flex;
     align-items: center;
-    gap: 10px;
-    justify-content: flex-end;
+    gap: 8px;
     font-family: 'Shippori Mincho', serif;
     font-weight: 700;
-    font-size: 34px;
+    font-size: 30px;
     color: #fff;
-    letter-spacing: .02em;
+    white-space: nowrap;
   }
 
-  .phone svg { width: 24px; height: 24px; stroke: #fff; fill: none; }
-  .addr { margin-top: 6px; font-size: 12.5px; color: #c9c2b3; }
+  .phone svg { width: 22px; height: 22px; stroke: #fff; fill: none; }
+  .addr { margin-top: 4px; font-size: 12px; color: #c9c2b3; text-align: right; }
 
   /* ---- Footer ---- */
   footer {
@@ -414,19 +404,16 @@
     border-top: 1px solid rgba(255,255,255,0.1);
     color: #c9c2b3;
     text-align: center;
-    padding: 24px 20px;
+    padding: 20px;
     font-size: 12px;
   }
 
   /* ---- Responsive ---- */
-  @media (max-width: 640px) {
-    .container { padding: 24px 16px 40px; }
-    h1, h2 { font-size: 26px; }
-    .panels { grid-template-columns: 1fr; }
-    .access-block { grid-template-columns: 1fr; }
+  @media (max-width: 768px) {
+    .panels, .access-block { grid-template-columns: 1fr; }
     .cta { flex-direction: column; align-items: flex-start; }
-    .cta-right { text-align: left; width: 100%; }
-    .phone { justify-content: flex-start; font-size: 28px; }
+    .addr { text-align: left; }
+    .hero-title { font-size: 24px; }
   }
 </style>
 </head>
@@ -445,51 +432,55 @@
 <main class="container">
 
   <!-- Hero Visual -->
-  <div class="hero">
-    <div class="hero-visual">
-      <img src="data:image/jpeg;base64,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?x=" alt="リサイクルショップ夢工房 店舗外観">
-      <span class="hero-tag">夢工房</span>
-      <span class="hero-hours">
-        <svg viewBox="0 0 24 24" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
-        10:00〜18:00
-      </span>
-      <span class="hero-cap">黄色い大きな看板が目印。国道5号線沿いの倉庫型店舗です。[span_0](start_span)[span_0](end_span)</span>
+  <div class="hero-visual">
+    <div class="hero-content">
+      <span class="hero-tag">小樽市張碓町</span>
+      <h1 class="hero-title">リサイクルショップ夢工房</h1>
+      <p class="hero-desc">国道5号線沿い、黄色い大きな看板が目印の倉庫型店舗です。買取・販売から不用品の整理・処分まで、丁寧に対応いたします。</p>
+      <div class="hero-badge-container">
+        <span class="hero-badge">見積り無料</span>
+        <span class="hero-badge">営業時間 10:00〜18:00</span>
+      </div>
     </div>
   </div>
 
   <!-- Services Section -->
   <section id="services" class="section-block">
     <div class="section-header">
-      <div class="eyebrow-row"><span class="bar"></span><span class="eyebrow">SERVICES</span></div>[span_1](start_span)[span_1](end_span)
-      <h1>売るも、<span class="accent">片付けるも、</span><br>まずはお気軽にご相談を。</h1>[span_2](start_span)[span_2](end_span)
-      <p class="sub">生活用品から工具、自転車まで販売・買取。引越しや遺品整理、空き家の片付けまで、不用品の処分もまとめてお任せください。</p>[span_3](start_span)[span_3](end_span)
+      <div class="eyebrow-row"><span class="bar"></span><span class="eyebrow">SERVICES</span></div>
+      <h2>売るも、<span class="accent">片付けるも、</span><br>まずはお気軽にご相談を。</h2>
+      <p class="sub">生活用品から工具、自転車まで各種販売・買取を実施。引越しや遺品整理、空き家の片付けまで丸ごとお任せください。</p>
     </div>
 
     <div class="panels">
       <div class="panel sell">
         <div class="panel-head">
-          <div class="panel-icon"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7l2-4h14l2 4"/><path d="M3 7h18v13H3z"/><path d="M9 11a3 3 0 006 0"/></svg></div>[span_4](start_span)[span_4](end_span)
-          <div class="panel-title"><small>SELL &amp; BUY</small>販売・買取</div>[span_5](start_span)[span_5](end_span)
+          <div class="panel-icon">
+            <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7l2-4h14l2 4"/><path d="M3 7h18v13H3z"/><path d="M9 11a3 3 0 006 0"/></svg>
+          </div>
+          <div class="panel-title"><small>SELL &amp; BUY</small>販売・買取</div>
         </div>
         <ul class="item-list">
-          <li><span class="dot"></span>生活用品</li>[span_6](start_span)[span_6](end_span)
-          <li><span class="dot"></span>工具・除雪機</li>[span_7](start_span)[span_7](end_span)
-          <li><span class="dot"></span>自転車・その他</li>[span_8](start_span)[span_8](end_span)
+          <li><span class="dot"></span>生活用品</li>
+          <li><span class="dot"></span>工具・除雪機</li>
+          <li><span class="dot"></span>自転車・その他</li>
         </ul>
       </div>
 
       <div class="panel clear">
         <div class="panel-head">
-          <div class="panel-icon"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16"/><path d="M6 7l1 13h10l1-13"/><path d="M10 3h4l1 4H9z"/></svg></div>[span_9](start_span)[span_9](end_span)
-          <div class="panel-title"><small>CLEAR OUT</small>不用品の処分</div>[span_10](start_span)[span_10](end_span)
+          <div class="panel-icon">
+            <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16"/><path d="M6 7l1 13h10l1-13"/><path d="M10 3h4l1 4H9z"/></svg>
+          </div>
+          <div class="panel-title"><small>CLEAR OUT</small>不用品の処分</div>
         </div>
         <ul class="item-list">
-          <li><span class="dot"></span>引越後の不用品片付</li>[span_11](start_span)[span_11](end_span)
-          <li><span class="dot"></span>ゴミ屋敷の片付</li>[span_12](start_span)[span_12](end_span)
-          <li><span class="dot"></span>遺品整理</li>[span_13](start_span)[span_13](end_span)
-          <li><span class="dot"></span>空き家の片付</li>[span_14](start_span)[span_14](end_span)
+          <li><span class="dot"></span>引越後の不用品片付</li>
+          <li><span class="dot"></span>ゴミ屋敷の片付</li>
+          <li><span class="dot"></span>遺品整理</li>
+          <li><span class="dot"></span>空き家の片付</li>
         </ul>
-        <div class="note">一般廃棄物の運搬・廃棄は(一財)札幌市環境事業公社へ依頼しています。</div>[span_15](start_span)[span_15](end_span)
+        <div class="note">一般廃棄物の運搬・廃棄は(一財)札幌市環境事業公社へ依頼しています。</div>
       </div>
     </div>
   </section>
@@ -497,12 +488,59 @@
   <!-- Access Section -->
   <section id="access" class="section-block">
     <div class="section-header">
-      <div class="eyebrow-row"><span class="bar"></span><span class="eyebrow">ACCESS</span></div>[span_16](start_span)[span_16](end_span)
-      <h2>目印は、<span class="accent">黄色い看板。</span><br>国道5号線沿いでお待ちしています。</h2>[span_17](start_span)[span_17](end_span)
-      <p class="sub">小樽市張碓町、国道5号線沿いの大きな建物です。小樽方面からも札幌方面からも分かりやすい立地です。</p>[span_18](start_span)[span_18](end_span)
+      <div class="eyebrow-row"><span class="bar"></span><span class="eyebrow">ACCESS</span></div>
+      <h2>目印は、<span class="accent">黄色い看板。</span><br>国道5号線沿いでお待ちしています。</h2>
+      <p class="sub">小樽市張碓町、国道5号線沿いの分かりやすい立地です。お近くをお通りの際はお気軽にお立ち寄りください。</p>
     </div>
 
     <div class="access-block">
-      <div class="map-frame">
-        <span class="map-tag">案内図</span>[span_19](start_span)[span_19](end_span)
-        <img src="data:image/jpeg;base64,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
+      <div class="map-card">
+        <span class="map-card-tag">目印</span>
+        <div class="map-card-title">黄色い大きな看板</div>
+        <div class="map-card-desc">国道5号線沿い<br>小樽・札幌間からのアクセス便利</div>
+      </div>
+
+      <div class="details">
+        <h3 class="details-title">店舗情報</h3>
+        
+        <div class="d-row">
+          <div class="d-icon"><svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s-8-4.5-8-11.8A8 8 0 0112 2a8 8 0 018 8.2c0 7.3-8 11.8-8 11.8z"/><circle cx="12" cy="10" r="3"/></svg></div>
+          <div class="d-text"><strong>住所</strong>小樽市張碓町460番地</div>
+        </div>
+
+        <div class="d-row">
+          <div class="d-icon"><svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 01-2.2 2 19.8 19.8 0 01-8.6-3 19.5 19.5 0 01-6-6 19.8 19.8 0 01-3-8.7A2 2 0 014.2 2h3a2 2 0 012 1.7c.1 1 .3 2 .6 3a2 2 0 01-.5 2.1L8 10a16 16 0 006 6l1.2-1.3a2 2 0 012.1-.5c1 .3 2 .5 3 .6a2 2 0 011.7 2z"/></svg></div>
+          <div class="d-text"><strong>電話番号</strong>0134-61-7058</div>
+        </div>
+
+        <div class="d-row">
+          <div class="d-icon"><svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+          <div class="d-text"><strong>営業時間</strong>10:00〜18:00</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Footer Section -->
+  <div class="cta">
+    <div class="cta-left">
+      <div class="estimate-badge">見積り無料</div>
+      <div class="cta-text">まずはお気軽にお電話ください。<br>現地を確認のうえお見積りいたします。</div>
+    </div>
+    <div class="cta-right">
+      <div class="phone">
+        <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 01-2.2 2 19.8 19.8 0 01-8.6-3 19.5 19.5 0 01-6-6 19.8 19.8 0 01-3-8.7A2 2 0 014.2 2h3a2 2 0 012 1.7c.1 1 .3 2 .6 3a2 2 0 01-.5 2.1L8 10a16 16 0 006 6l1.2-1.3a2 2 0 012.1-.5c1 .3 2 .5 3 .6a2 2 0 011.7 2z"/></svg>
+        0134-61-7058
+      </div>
+      <div class="addr">小樽市張碓町460番地</div>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  &copy; リサイクルショップ夢工房 All Rights Reserved.
+</footer>
+
+</body>
+</html>
