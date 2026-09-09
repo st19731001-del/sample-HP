@@ -1,544 +1,103 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>リサイクル夢工房 | 不用品回収・遺品整理・買取</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@600;800&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap" rel="stylesheet">
-<style>
-  :root {
-    --cream: #f9f7f2;
-    --panel: #ffffff;
-    --ink: #2c2a25;
-    --ink-soft: #635f56;
-    --teal: #1f6f6f;
-    --teal-deep: #134e4e;
-    --rust: #c95a2b;
-    --rust-hover: #b04b20;
-    --line: #e6dfd3;
-    --line-light: #f0ebd8;
-    --line-green: #06c755;
-  }
-
-  * { box-sizing: border-box; }
-
-  body {
-    margin: 0;
-    background: var(--cream);
-    font-family: 'Zen Kaku Gothic New', sans-serif;
-    color: var(--ink);
-    line-height: 1.7;
-    padding-bottom: 80px; /* 固定フッターボタン用 */
-  }
-
-  /* ---- 1. ヘッダー ---- */
-  header {
-    background: var(--panel);
-    border-bottom: 1px solid var(--line);
-    position: sticky;
-    top: 0;
-    z-index: 100;
-  }
-
-  .header-inner {
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 12px 20px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-
-  .logo-group {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-  }
-
-  .logo-title {
-    font-family: 'Shippori Mincho', serif;
-    font-size: 22px;
-    font-weight: 800;
-    color: var(--teal-deep);
-    text-decoration: none;
-  }
-
-  .badge-free {
-    background: #fff3ed;
-    color: var(--rust);
-    border: 1px solid var(--rust);
-    font-size: 11px;
-    font-weight: 700;
-    padding: 3px 8px;
-    border-radius: 4px;
-    letter-spacing: .05em;
-  }
-
-  .header-actions {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-
-  .btn-header {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    padding: 8px 14px;
-    border-radius: 6px;
-    font-weight: 700;
-    font-size: 13px;
-    text-decoration: none;
-    transition: opacity 0.2s;
-  }
-
-  .btn-header:hover { opacity: 0.9; }
-  .btn-header-tel { background: var(--rust); color: #fff; }
-  .btn-header-line { background: var(--line-green); color: #fff; }
-
-  /* ---- 2. ファーストビュー ---- */
-  .fv {
-    background: linear-gradient(135deg, var(--teal-deep) 0%, var(--teal) 100%);
-    color: #fff;
-    padding: 50px 20px;
-    border-bottom: 1px solid var(--line);
-  }
-
-  .fv-inner {
-    max-width: 1000px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1.1fr 0.9fr;
-    gap: 30px;
-    align-items: center;
-  }
-
-  .fv-sub {
-    font-size: 14px;
-    font-weight: 700;
-    letter-spacing: .1em;
-    color: #aae0e0;
-    margin-bottom: 10px;
-  }
-
-  .fv-title {
-    font-family: 'Shippori Mincho', serif;
-    font-size: 32px;
-    font-weight: 800;
-    line-height: 1.4;
-    margin: 0 0 20px;
-  }
-
-  .fv-img-placeholder {
-    background: rgba(255, 255, 255, 0.1);
-    border: 2px dashed rgba(255, 255, 255, 0.3);
-    border-radius: 12px;
-    aspect-ratio: 4/3;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 20px;
-  }
-
-  /* ---- コンテナ・セクション構造 ---- */
-  .container {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 60px 20px;
-  }
-
-  .section-block {
-    margin-bottom: 70px;
-    scroll-margin-top: 80px;
-  }
-
-  .sec-title {
-    font-family: 'Shippori Mincho', serif;
-    font-size: 26px;
-    font-weight: 800;
-    color: var(--teal-deep);
-    margin: 0 0 10px;
-    position: relative;
-    padding-left: 16px;
-  }
-
-  .sec-title::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 4px;
-    bottom: 4px;
-    width: 4px;
-    background: var(--rust);
-    border-radius: 2px;
-  }
-
-  .sec-desc {
-    font-size: 14px;
-    color: var(--ink-soft);
-    margin: 0 0 30px;
-  }
-
-  /* ---- 3. 創業ストーリー ---- */
-  .story-card {
-    background: var(--panel);
-    border: 1px solid var(--line);
-    border-radius: 14px;
-    padding: 36px 30px;
-    box-shadow: 0 10px 25px -10px rgba(44,42,37,0.08);
-  }
-
-  .story-head {
-    font-family: 'Shippori Mincho', serif;
-    font-size: 20px;
-    font-weight: 700;
-    color: var(--rust);
-    margin-bottom: 20px;
-    border-bottom: 1px dashed var(--line);
-    padding-bottom: 12px;
-  }
-
-  .story-body p {
-    font-size: 15px;
-    line-height: 1.9;
-    color: var(--ink);
-    margin-bottom: 16px;
-  }
-
-  .story-body p:last-child { margin-bottom: 0; }
-
-  /* ---- 4. サービス・作業風景 ---- */
-  .service-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 24px;
-    align-items: center;
-  }
-
-  .img-box {
-    background: #e8e3d8;
-    border: 1px solid var(--line);
-    border-radius: 12px;
-    aspect-ratio: 4/3;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    color: var(--ink-soft);
-    font-size: 13px;
-    font-weight: 700;
-  }
-
-  .service-card {
-    background: var(--panel);
-    border: 1px solid var(--line);
-    border-radius: 12px;
-    padding: 24px;
-  }
-
-  .service-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-
-  .service-list li {
-    padding: 10px 0;
-    border-bottom: 1px solid var(--line-light);
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-weight: 700;
-    font-size: 15px;
-  }
-
-  .service-list li:last-child { border-bottom: none; }
-  .service-list li::before {
-    content: '✔';
-    color: var(--teal);
-  }
-
-  /* ---- 5. 施工実績（ビフォーアフター） ---- */
-  .ba-container {
-    background: var(--panel);
-    border: 1px solid var(--line);
-    border-radius: 14px;
-    padding: 26px;
-  }
-
-  .ba-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
-    margin-top: 20px;
-  }
-
-  .ba-box {
-    border-radius: 8px;
-    overflow: hidden;
-    position: relative;
-  }
-
-  .ba-tag {
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    background: rgba(0,0,0,0.7);
-    color: #fff;
-    font-size: 12px;
-    font-weight: 700;
-    padding: 4px 10px;
-    border-radius: 4px;
-  }
-
-  .ba-tag.after { background: var(--teal); }
-
-  /* ---- 6. 会社概要・お知らせ ---- */
-  .info-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 24px;
-  }
-
-  .company-table {
-    width: 100%;
-    border-collapse: collapse;
-    background: var(--panel);
-    border: 1px solid var(--line);
-    border-radius: 10px;
-    overflow: hidden;
-  }
-
-  .company-table th, .company-table td {
-    padding: 12px 16px;
-    font-size: 13.5px;
-    border-bottom: 1px solid var(--line-light);
-    text-align: left;
-  }
-
-  .company-table th {
-    background: #f3efe4;
-    width: 35%;
-    font-weight: 700;
-  }
-
-  .blog-list {
-    background: var(--panel);
-    border: 1px solid var(--line);
-    border-radius: 10px;
-    padding: 16px;
-    list-style: none;
-    margin: 0;
-  }
-
-  .blog-item {
-    padding: 10px 0;
-    border-bottom: 1px dashed var(--line);
-  }
-
-  .blog-item:last-child { border-bottom: none; }
-  .blog-date { font-size: 11px; color: var(--ink-soft); display: block; }
-  .blog-title { font-size: 13.5px; font-weight: 700; color: var(--ink); text-decoration: none; }
-
-  /* ---- 7. 固定追従ボタン ---- */
-  .sticky-footer-btns {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: rgba(255,255,255,0.95);
-    backdrop-filter: blur(8px);
-    border-top: 1px solid var(--line);
-    padding: 10px 16px;
-    display: flex;
-    gap: 12px;
-    z-index: 1000;
-  }
-
-  .btn-fixed {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    padding: 12px 0;
-    border-radius: 8px;
-    font-weight: 700;
-    font-size: 15px;
-    color: #fff;
-    text-decoration: none;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-  }
-
-  .btn-fixed-tel { background: var(--rust); }
-  .btn-fixed-line { background: var(--line-green); }
-
-  /* ---- スマホ対応 ---- */
-  @media (max-width: 768px) {
-    .fv-inner, .service-grid, .info-grid { grid-template-columns: 1fr; }
-    .header-actions { display: none; } /* スマホは追従ボタンに任せる */
-    .sec-title { font-size: 22px; }
-  }
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>不用品回収・買取・遺品整理 | 店舗名</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- FontAwesome (アイコン用) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
 
-  <!-- 1. ヘッダー -->
-  <header>
+  <!-- ヘッダー -->
+  <header class="site-header">
     <div class="header-inner">
-      <div class="logo-group">
-        <a href="#" class="logo-title">リサイクル夢工房</a>
-        <span class="badge-free">お見積り無料</span>
+      <div class="logo">
+        <h1>店舗名</h1>
+        <p class="tagline">国道5号線沿い・黄色い看板が目印！</p>
       </div>
-      <div class="header-actions">
-        <a href="tel:0134-61-7058" class="btn-header btn-header-tel">📞 0134-61-7058</a>
-        <a href="#" class="btn-header btn-header-line">💬 LINE相談</a>
+      <div class="header-contact">
+        <a href="tel:0000000000" class="btn btn-phone"><i class="fa-solid fa-phone"></i> 000-000-0000</a>
+        <a href="#" class="btn btn-line"><i class="fa-brands fa-line"></i> LINEで無料査定</a>
       </div>
     </div>
   </header>
 
-  <!-- 2. ファーストビュー -->
-  <section class="fv">
-    <div class="fv-inner">
-      <div>
-        <div class="fv-sub">小樽市・近郊 スピード対応</div>
-        <h1 class="fv-title">不用品回収・遺品整理・買取まで。<br>地域密着でスピード対応！</h1>
-        <p style="font-size: 14px; opacity: 0.9;">お部屋の片付けから一社完結。安心・丁寧な作業をお約束します。</p>
+  <!-- メインビジュアル -->
+  <section class="hero">
+    <div class="hero-content">
+      <h2>お部屋の片付けから不用品買取まで<br>親身にサポートいたします</h2>
+      <p>ご家族経営ならではの丁寧・安心対応。1点からお気軽にご相談ください。</p>
+    </div>
+  </section>
+
+  <!-- ビフォーアフター（画像セクション） -->
+  <section class="section before-after-section">
+    <div class="container">
+      <h2 class="section-title">片付け・遺品整理の実績</h2>
+      <div class="ba-image-wrapper">
+        <!-- ご提示いただいた画像を images フォルダに保存して配置 -->
+        <img src="images/1000001511.png" alt="片付けサービスのビフォーアフター" class="ba-img">
       </div>
-      <!-- [1枚目の画像：トラックと笑顔のスタッフ] -->
-      <div class="fv-img-placeholder">
-        <span style="font-size: 28px; margin-bottom: 8px;">🚚😊</span>
-        <span>【1枚目の画像】<br>トラックと笑顔のスタッフ写真</span>
+      <div class="ba-info">
+        <p class="ba-note">※お部屋の状況や回収物の量に応じて、事前に明確なお見積もりをご提示いたします。追加料金は一切かかりません。</p>
       </div>
     </div>
   </section>
 
-  <main class="container">
-
-    <!-- 3. 創業ストーリー（代表挨拶） -->
-    <section class="section-block">
-      <h2 class="sec-title">創業ストーリー</h2>
-      <p class="sec-desc">私たちが「夢工房」としてこの街で大切にしている想い</p>
-
-      <div class="story-card">
-        <div class="story-head">父の背中を追って生まれた、地域への感謝と約束</div>
-        <div class="story-body">
-          <p>長年、地域のみなさまの暮らしと向き合い、汗を流し続けてきた父の姿を見て育ちました。どんなに大変な作業でも、お客様からの「ありがとう」の一言で笑顔になる父の仕事は、私の誇りです。</p>
-          <p>「大切な思い出の品を、ただ捨てるのではなく、次の必要な人へ繋ぎたい」——そんな父の強い想いを受け継ぎ、リサイクル夢工房は始まりました。</p>
-          <p>ご家族の遺品整理や、長年暮らしたお部屋の片付けは、心にも負担がかかるものです。私たちは単なる作業ではなく、お客様のお気持ちに寄り添い、丁寧で誠実な作業をお約束いたします。</p>
+  <!-- サービスの流れ -->
+  <section class="section service-flow">
+    <div class="container">
+      <h2 class="section-title">ご利用の流れ</h2>
+      <div class="steps">
+        <div class="step-card">
+          <span class="step-num">STEP 1</span>
+          <h3>お問い合わせ</h3>
+          <p>お電話またはLINEから気軽にご相談ください。写真を送るだけのLINE査定が便利です。</p>
+        </div>
+        <div class="step-card">
+          <span class="step-num">STEP 2</span>
+          <h3>無料お見積り</h3>
+          <p>店頭への持ち込み、または出張にて査定・お見積もりを行います（費用は無料）。</p>
+        </div>
+        <div class="step-card">
+          <span class="step-num">STEP 3</span>
+          <h3>作業・お買い取り</h3>
+          <p>ご納得いただけましたら作業を開始。買取の場合はその場で現金をお支払いいたします。</p>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- 4. サービス・作業風景 -->
-    <section class="section-block">
-      <h2 class="sec-title">サービス・作業風景</h2>
-      <p class="sec-desc">ご自宅のお荷物を1点ずつ丁寧に整理・梱包いたします</p>
-
-      <div class="service-grid">
-        <!-- [2枚目の画像：丁寧な仕分け風景] -->
-        <div class="img-box">
-          <span style="font-size: 28px; margin-bottom: 8px;">📦✨</span>
-          <span>【2枚目の画像】<br>丁寧な仕分け・梱包風景</span>
+  <!-- アクセス・Googleマップ -->
+  <section class="section access-section">
+    <div class="container">
+      <h2 class="section-title">店舗アクセス</h2>
+      <div class="access-grid">
+        <div class="access-info">
+          <h3>店舗情報</h3>
+          <p><strong>住所:</strong> 〒000-0000 北海道〇〇市〇〇 0-0-0</p>
+          <p><strong>目印:</strong> 国道5号線沿い・黄色い看板</p>
+          <p><strong>営業時間:</strong> 10:00 〜 19:00</p>
+          <p><strong>定休日:</strong> 水曜日</p>
+          <p><strong>駐車場:</strong> 〇台分完備（札幌・小樽両方向からアクセス可能）</p>
         </div>
-        <div class="service-card">
-          <ul class="service-list">
-            <li>不用品回収・処分サポート</li>
-            <li>ご遺品・生前整理</li>
-            <li>家具・家電・工具の買取</li>
-            <li>ゴミ屋敷・空き家のまるごと片付け</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <!-- 5. 施工実績（ビフォーアフター） -->
-    <section class="section-block">
-      <h2 class="sec-title">施工実績（ビフォーアフター）</h2>
-      <p class="sec-desc">どんなお部屋も、もう一度心地よい空間に。</p>
-
-      <div class="ba-container">
-        <h3 style="font-size: 16px; font-weight: 700; margin: 0;">小樽市内 A様邸（不用品処分・清掃）</h3>
-        <div class="ba-grid">
-          <!-- [3枚目の画像：ビフォーアフター] -->
-          <div class="ba-box img-box">
-            <span class="ba-tag">BEFORE</span>
-            <span>【3枚目の画像】<br>作業前の状態</span>
-          </div>
-          <div class="ba-box img-box">
-            <span class="ba-tag after">AFTER</span>
-            <span>【3枚目の画像】<br>作業後のスッキリした状態</span>
-          </div>
+        <div class="map-wrapper">
+          <!-- Googleマップ埋め込み（実際の共有コードに差し替え） -->
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2914.887889758718!2d141.3544!3d43.0621!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDPCsDAzJzQzLjYiTiAxNDHCsDIxJzE1LjgiRQ!5e0!3m2!1sja!2sjp!4v1600000000000!5m2!1sja!2sjp" 
+            width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy">
+          </iframe>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- 6. 会社概要・お知らせ -->
-    <section class="section-block">
-      <h2 class="sec-title">会社概要・最新情報</h2>
-      <p class="sec-desc">店舗情報と最新の現場ブログ</p>
-
-      <div class="info-grid">
-        <div>
-          <table class="company-table">
-            <tr>
-              <th>屋号</th>
-              <td>リサイクル夢工房</td>
-            </tr>
-            <tr>
-              <th>住所</th>
-              <td>小樽市張碓町460番地</td>
-            </tr>
-            <tr>
-              <th>電話番号</th>
-              <td>0134-61-7058</td>
-            </tr>
-            <tr>
-              <th>営業時間</th>
-              <td>10:00 〜 18:00</td>
-            </tr>
-            <tr>
-              <th>古物商許可</th>
-              <td>北海道公安委員会 第XXXXXXXX号</td>
-            </tr>
-          </table>
-
-          <!-- Googleマップ -->
-          <div style="margin-top: 16px; border-radius: 10px; overflow: hidden; border: 1px solid var(--line);">
-            <iframe src="https://maps.google.com/maps?q=%E5%B0%8F%E6%A5%AD%E5%B8%82%E5%BC%B5%E7%AF%89%E7%94%BA460&t=&z=15&ie=UTF8&iwloc=&output=embed" width="100%" height="180" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-          </div>
-        </div>
-
-        <div>
-          <h3 style="font-size: 16px; font-weight: 700; margin: 0 0 12px;">最新の現場ブログ</h3>
-          <ul class="blog-list">
-            <li class="blog-item">
-              <span class="blog-date">2026.03.01</span>
-              <a href="#" class="blog-title">小樽市内での一軒家まるごと片付け作業のご報告</a>
-            </li>
-            <li class="blog-item">
-              <span class="blog-date">2026.02.18</span>
-              <a href="#" class="blog-title">家具・家電の出張買取を実施いたしました</a>
-            </li>
-            <li class="blog-item">
-              <span class="blog-date">2026.02.05</span>
-              <a href="#" class="blog-title">遺品整理での貴重品探索・丁寧な仕分け対応</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-  </main>
-
-  <!-- 7. 画面下に固定される追従ボタン -->
-  <div class="sticky-footer-btns">
-    <a href="tel:0134-61-7058" class="btn-fixed btn-fixed-tel">📞 電話で無料相談</a>
-    <a href="#" class="btn-fixed btn-fixed-line">💬 LINEで相談</a>
+  <!-- スマホ用 固定フッターバー（追従表示） -->
+  <div class="mobile-sticky-footer">
+    <a href="tel:0000000000" class="sticky-btn btn-call"><i class="fa-solid fa-phone"></i> 電話相談</a>
+    <a href="#" class="sticky-btn btn-line"><i class="fa-brands fa-line"></i> LINE査定</a>
   </div>
 
 </body>
